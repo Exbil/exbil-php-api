@@ -114,6 +114,21 @@ class Files
     }
 
     /**
+     * Rename a file or directory without overwriting an existing entry.
+     * Both paths must be absolute and within the same directory.
+     *
+     * @throws ApiException
+     * @throws GuzzleException
+     */
+    public function rename(string $uuid, string $from, string $to): array
+    {
+        return $this->client->post("{$this->basePath}/{$uuid}/files/rename", [
+            'from' => $from,
+            'to' => $to,
+        ]);
+    }
+
+    /**
      * Delete files
      *
      * @param string $uuid Service UUID

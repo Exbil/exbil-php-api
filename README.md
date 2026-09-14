@@ -864,3 +864,16 @@ The response typically contains a job ID or task information for tracking.
 ## License
 
 BSD-2-Clause
+
+### Rename a Cloud Service file or directory
+
+Requires the Cloud Services manage permission. The destination must be in the
+same directory; existing files and folders are not overwritten.
+
+```php
+$client->cloudServices()->files()->rename(
+    $uuid,
+    '/var/www/site/public/old-name.html',
+    '/var/www/site/public/new-name.html',
+);
+```
